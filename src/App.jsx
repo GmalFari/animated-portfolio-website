@@ -37,6 +37,6 @@ function App() {
 
 
 
-gsap.registerPlugin(ScrollTrigger,DrawSVGPlugin, Draggable, Flip, MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin);
 
 export default App
