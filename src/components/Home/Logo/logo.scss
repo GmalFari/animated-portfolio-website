@@ -1,0 +1,82 @@
+.logo-container {
+    z-index: 0;
+    width: 400px;
+    height: 609px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 15%;
+    bottom: 0;
+    left: auto;
+    margin: auto;
+  
+    svg {
+      width: 100%;
+      height: auto;
+      bottom: 0;
+      transform: rotateZ(30deg) !important;
+    }
+  
+    .solid-logo {
+      position: absolute;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      margin: auto;
+      width: 100%;
+      opacity: 0;
+      transform: rotateZ(30deg) !important;
+      z-index: 1;
+    }
+  }
+  
+  .svg-container {
+    stroke: #ffd700;
+    stroke-width: 10;
+  }
+
+
+
+@media screen and (max-width: 1200px) {
+    .tags,
+    .home-page h1:before,
+    .home-page h1:after {
+      display: none;
+    }
+  
+    .home-page .text-zone {
+      position: initial;
+      width: 100%;
+      transform: none;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  
+    .home-page .flat-button {
+      float: none;
+      display: block;
+      margin: 20px auto 0 auto;
+      width: 124px;
+    }
+  
+    .logo-container {
+      position: relative;
+      width: 100px;
+      height: auto;
+      top: 50px;
+      right: 0;
+      box-sizing: border-box;
+      margin: auto;
+      left: 0;
+    }
+  
+    .logo-container svg {
+      position: absolute;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      left: 0;
+      margin: auto;
+    }
+  }

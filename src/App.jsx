@@ -1,39 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-// get other plugins:
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Flip from "gsap/Flip";
-import Draggable from "gsap/Draggable";
+/* eslint-disable react/prop-types */
 
-// or all tools are exported from the "all" file (excluding members-only plugins):
-import { gsap, MotionPathPlugin } from "gsap/all";
-import { useLayoutEffect,useRef } from 'react';
-function App() {
-  const [count, setCount] = useState(0)
-  const app = useRef();
-  const circle = useRef();
-  
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // use scoped selectors
-      gsap.to(".box", { rotation: 360 });
-      // or refs
-      gsap.to(circle.current, { rotation: 360 });
-      
-    }, app);
-    
-    return () => ctx.revert();
-  }, []);
+import './App.scss'
+// eslint-disable-next-line no-unused-vars
+import { Routes,Route } from 'react-router-dom'
+import { Suspense, useState } from 'react';
 
-  return (
-    <div ref={app} className="App">
-      <div className="box">selector</div>
-      <div className="circle" ref={circle}>Ref</div>
+import Layout from './components/Layout/Layout'
+import Home from './components/Home/Home';
+// eslint-disable-next-line no-unused-vars
+import {useTranslation,withTranslation} from "react-i18next";
+// import { Component } from 'react';
+
+
+// class HighOrderComponent extends Component {
+//   render() {
+//       const { t } = this.props;
+
+//       return (
+//         <h1>{t('welcome.title', {framework:'React'})}</h1>
+//         )
+//   }
+// }
+// const HighOrderComponentTranslated = withTranslation('common')(HighOrderComponent)
+const HeaderComponent=()=>
+      {
+    const [t, i18n] = useTranslation('common');
+    const handleLanguage=(e)=>{
+        i18n.changeLanguage(e.target.value)
+    }
+    return <div>
+    <select onChange={handleLanguage} value={i18n.language}>
+      <option>ar</option>
+      <option>en</option>
+
+    </select>
+    <div>
+      my name is {t('welcome.name',{myname:"sallah"})}
     </div>
-  );
+        </div>
 }
 
+function  App () {
+
+  return (
+    <>
+    <Suspense fallback="loading">
+      <Routes>
+        <Route path='/' element={<Layout />} >      
+        <Route index  element={<Home/>} />
+        </Route>
+        </Routes>
+    </Suspense>
+    </>
+
+  )
+}
 
 export default App
