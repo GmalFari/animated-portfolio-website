@@ -6,6 +6,9 @@ import './App.css'
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Flip from "gsap/Flip";
 import Draggable from "gsap/Draggable";
+
+import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+gsap.registerPlugin(DrawSVGPlugin);
 // or all tools are exported from the "all" file (excluding members-only plugins):
 import { gsap, MotionPathPlugin } from "gsap/all";
 import { useLayoutEffect,useRef } from 'react';
