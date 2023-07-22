@@ -8,7 +8,7 @@ import Flip from "gsap/Flip";
 import Draggable from "gsap/Draggable";
 
 // or all tools are exported from the "all" file (excluding members-only plugins):
-import { gsap, MotionPathPlugin,DrawSVGPlugin } from "gsap/all";
+import { gsap, MotionPathPlugin } from "gsap/all";
 import { useLayoutEffect,useRef } from 'react';
 function App() {
   const [count, setCount] = useState(0)
@@ -37,6 +37,6 @@ function App() {
 
 
 
-gsap.registerPlugin(DrawSVGPlugin,ScrollTrigger, Draggable, Flip, MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin);
 
 export default App
